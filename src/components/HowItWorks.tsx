@@ -29,6 +29,12 @@ const HowItWorks = () => {
           scrollTrigger: { trigger: ref.current, start: "top 80%" },
         }
       );
+      // Parallax on heading
+      gsap.to(".hiw-heading", {
+        yPercent: -30,
+        ease: "none",
+        scrollTrigger: { trigger: ref.current, start: "top bottom", end: "bottom top", scrub: true },
+      });
     }, ref);
     return () => ctx.revert();
   }, []);
@@ -36,8 +42,8 @@ const HowItWorks = () => {
   return (
     <section id="how-it-works" ref={ref} className="py-24 md:py-32 px-4">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl md:text-5xl font-display italic text-text text-center mb-4">How It Works</h2>
-        <p className="text-muted text-center mb-16 max-w-lg mx-auto">Four steps from need to action — fully autonomous.</p>
+        <h2 className="hiw-heading text-3xl md:text-5xl font-display italic text-text text-center mb-4">How It Works</h2>
+        <p className="hiw-heading text-muted text-center mb-16 max-w-lg mx-auto">Four steps from need to action — fully autonomous.</p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {STEPS.map((step, i) => (
