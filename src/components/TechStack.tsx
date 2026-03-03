@@ -23,6 +23,11 @@ const TechStack = () => {
         { opacity: 0, y: 30 },
         { opacity: 1, y: 0, duration: 0.7, stagger: 0.1, ease: "power3.out", scrollTrigger: { trigger: ref.current, start: "top 80%" } }
       );
+      gsap.to(".tech-heading", {
+        yPercent: -25,
+        ease: "none",
+        scrollTrigger: { trigger: ref.current, start: "top bottom", end: "bottom top", scrub: true },
+      });
     }, ref);
     return () => ctx.revert();
   }, []);
@@ -30,8 +35,8 @@ const TechStack = () => {
   return (
     <section id="tech-stack" ref={ref} className="py-24 md:py-32 px-4">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl md:text-5xl font-display italic text-text text-center mb-4">Tech Stack</h2>
-        <p className="text-muted text-center mb-16 max-w-lg mx-auto">Built with open-source tools for maximum transparency and extensibility.</p>
+        <h2 className="tech-heading text-3xl md:text-5xl font-display italic text-text text-center mb-4">Tech Stack</h2>
+        <p className="tech-heading text-muted text-center mb-16 max-w-lg mx-auto">Built with open-source tools for maximum transparency and extensibility.</p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {STACK.map((item, i) => (

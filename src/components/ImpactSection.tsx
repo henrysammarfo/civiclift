@@ -27,6 +27,11 @@ const ImpactSection = () => {
         { opacity: 0, y: 30 },
         { opacity: 1, y: 0, duration: 0.7, stagger: 0.12, ease: "power3.out", scrollTrigger: { trigger: ref.current, start: "top 80%" } }
       );
+      gsap.to(".impact-heading", {
+        yPercent: -25,
+        ease: "none",
+        scrollTrigger: { trigger: ref.current, start: "top bottom", end: "bottom top", scrub: true },
+      });
     }, ref);
     return () => ctx.revert();
   }, []);
@@ -34,8 +39,8 @@ const ImpactSection = () => {
   return (
     <section id="impact" ref={ref} className="py-24 md:py-32 px-4">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl md:text-5xl font-display italic text-text text-center mb-4">Impact & SDGs</h2>
-        <p className="text-muted text-center mb-16 max-w-lg mx-auto">Aligned with the UN Sustainable Development Goals.</p>
+        <h2 className="impact-heading text-3xl md:text-5xl font-display italic text-text text-center mb-4">Impact & SDGs</h2>
+        <p className="impact-heading text-muted text-center mb-16 max-w-lg mx-auto">Aligned with the UN Sustainable Development Goals.</p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           {SDGS.map((sdg) => (

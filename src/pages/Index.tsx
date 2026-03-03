@@ -6,6 +6,7 @@ import Hero from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
 import ImpactSection from "@/components/ImpactSection";
 import TechStack from "@/components/TechStack";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -25,6 +26,7 @@ const Index = () => {
         <HowItWorks />
         <ImpactSection />
         <TechStack />
+        <Footer />
       </div>
     </>
   );
