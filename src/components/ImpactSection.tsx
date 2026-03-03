@@ -5,9 +5,24 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const SDGS = [
-  { num: 1, title: "No Poverty", color: "#E5243B", desc: "Connecting residents to financial aid, housing support, and emergency assistance." },
-  { num: 3, title: "Good Health", color: "#4C9F38", desc: "Matching users with local health services, mental health resources, and clinics." },
-  { num: 10, title: "Reduced Inequalities", color: "#DD1367", desc: "Breaking barriers to access — language, digital literacy, bureaucratic complexity." },
+  {
+    num: 1,
+    title: "No Poverty",
+    color: "#E5243B",
+    desc: "Connecting residents to financial aid, housing support, and emergency assistance.",
+  },
+  {
+    num: 3,
+    title: "Good Health & Well-being",
+    color: "#4C9F38",
+    desc: "Matching users with local health services, mental health resources, and clinics.",
+  },
+  {
+    num: 10,
+    title: "Reduced Inequalities",
+    color: "#DD1367",
+    desc: "Breaking barriers to access — language, digital literacy, bureaucratic complexity.",
+  },
 ];
 
 const METRICS = [
@@ -25,7 +40,14 @@ const ImpactSection = () => {
       gsap.fromTo(
         ".impact-item",
         { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.7, stagger: 0.12, ease: "power3.out", scrollTrigger: { trigger: ref.current, start: "top 80%" } }
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          stagger: 0.12,
+          ease: "power3.out",
+          scrollTrigger: { trigger: ref.current, start: "top 80%" },
+        }
       );
       gsap.to(".impact-heading", {
         yPercent: -25,
@@ -39,28 +61,47 @@ const ImpactSection = () => {
   return (
     <section id="impact" ref={ref} className="py-24 md:py-32 px-4">
       <div className="max-w-5xl mx-auto">
-        <h2 className="impact-heading text-3xl md:text-5xl font-display italic text-text text-center mb-4">Impact & SDGs</h2>
-        <p className="impact-heading text-muted text-center mb-16 max-w-lg mx-auto">Aligned with the UN Sustainable Development Goals.</p>
+        <h2 className="impact-heading text-3xl md:text-5xl font-display italic text-text text-center mb-4">
+          Impact & SDGs
+        </h2>
+        <p className="impact-heading text-muted text-center mb-16 max-w-lg mx-auto">
+          Aligned with the UN Sustainable Development Goals.
+        </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        {/* SDG Cards — editorial style with left color bar */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
           {SDGS.map((sdg) => (
-            <div key={sdg.num} className="impact-item rounded-2xl border border-stroke bg-surface p-6 flex flex-col gap-3">
-              <div className="flex items-center gap-3">
-                <span className="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold text-white" style={{ backgroundColor: sdg.color }}>
-                  {sdg.num}
-                </span>
-                <h3 className="text-lg font-semibold text-text">{sdg.title}</h3>
-              </div>
+            <div
+              key={sdg.num}
+              className="impact-item group relative overflow-hidden rounded-xl bg-surface p-8 transition-all duration-300 hover:-translate-y-1"
+              style={{ borderLeft: `3px solid ${sdg.color}` }}
+            >
+              <span
+                className="block text-5xl font-display italic mb-4 leading-none"
+                style={{ color: `${sdg.color}40` }}
+              >
+                {sdg.num}
+              </span>
+              <h3 className="text-base font-medium text-text mb-2 tracking-wide uppercase text-[13px]">
+                {sdg.title}
+              </h3>
               <p className="text-sm text-muted leading-relaxed">{sdg.desc}</p>
+
+              {/* Subtle corner glow on hover */}
+              <div
+                className="absolute -top-12 -right-12 w-32 h-32 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl"
+                style={{ backgroundColor: `${sdg.color}15` }}
+              />
             </div>
           ))}
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        {/* Metrics — minimal row */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-stroke rounded-xl overflow-hidden">
           {METRICS.map((m) => (
-            <div key={m.label} className="impact-item text-center p-6 rounded-2xl border border-stroke bg-surface">
-              <p className="text-2xl md:text-3xl font-display text-text mb-1">{m.value}</p>
-              <p className="text-xs text-muted uppercase tracking-wider">{m.label}</p>
+            <div key={m.label} className="impact-item bg-bg text-center py-8 px-4">
+              <p className="text-3xl md:text-4xl font-display italic text-text mb-2">{m.value}</p>
+              <p className="text-[11px] text-muted uppercase tracking-[0.15em]">{m.label}</p>
             </div>
           ))}
         </div>
