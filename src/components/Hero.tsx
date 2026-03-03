@@ -66,9 +66,6 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
-        <p className="blur-in text-xs text-muted uppercase tracking-[0.3em] mb-8">
-          UK AI AGENT HACKATHON '26
-        </p>
 
         <h1 className="name-reveal text-6xl md:text-8xl lg:text-9xl font-display italic leading-[0.9] tracking-tight text-text mb-6">
           CivicLift
