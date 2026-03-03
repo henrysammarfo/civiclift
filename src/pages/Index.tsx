@@ -5,7 +5,6 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
 import ImpactSection from "@/components/ImpactSection";
-import TechStack from "@/components/TechStack";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -25,7 +24,6 @@ const Index = () => {
         <Hero />
         <HowItWorks />
         <ImpactSection />
-        <TechStack />
         <Footer />
       </div>
     </>
