@@ -4,7 +4,6 @@ const NAV_LINKS = [
   { label: "Home", href: "#home" },
   { label: "How It Works", href: "#how-it-works" },
   { label: "Impact", href: "#impact" },
-  { label: "Tech Stack", href: "#tech-stack" },
 ];
 
 const Navbar = () => {
