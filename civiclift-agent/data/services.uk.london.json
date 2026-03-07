@@ -1,0 +1,62 @@
+[
+    {
+        "id": "sv-001",
+        "name": "Kensington Food Bank",
+        "category": "food",
+        "urgency_level": "high",
+        "postcode": "SW7 2AZ",
+        "lat": 51.498,
+        "lon": -0.176,
+        "phone": "020 7123 4567",
+        "url": "https://example.com/kensington-food",
+        "description": "Emergency food parcels for residents of Kensington and Chelsea."
+    },
+    {
+        "id": "sv-002",
+        "name": "West London Housing Aid",
+        "category": "housing",
+        "urgency_level": "critical",
+        "postcode": "W8 4NR",
+        "lat": 51.503,
+        "lon": -0.193,
+        "phone": "020 7890 1234",
+        "url": "https://example.com/wl-housing",
+        "description": "Immediate housing advice and emergency accommodation support."
+    },
+    {
+        "id": "sv-003",
+        "name": "Earls Court Medical Centre",
+        "category": "health",
+        "urgency_level": "medium",
+        "postcode": "SW5 9QG",
+        "lat": 51.492,
+        "lon": -0.193,
+        "phone": "020 7111 2222",
+        "url": "https://example.com/ec-medical",
+        "description": "Walk-in health clinic offering drop-in appointments."
+    },
+    {
+        "id": "sv-004",
+        "name": "Chelsea Citizens Advice",
+        "category": "legal",
+        "urgency_level": "medium",
+        "postcode": "SW3 5EZ",
+        "lat": 51.487,
+        "lon": -0.169,
+        "phone": "020 7333 4444",
+        "url": "https://example.com/chelsea-cab",
+        "description": "Free, confidential legal and financial advice."
+    },
+    {
+        "id": "sv-005",
+        "name": "South Kens Community Fridge",
+        "category": "food",
+        "urgency_level": "low",
+        "postcode": "SW7 5HR",
+        "lat": 51.493,
+        "lon": -0.178,
+        "phone": "020 7555 6666",
+        "url": "https://example.com/sk-fridge",
+        "description": "Community fridge open to all, reducing food waste."
+    }
+]

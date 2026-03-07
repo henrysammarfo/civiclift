@@ -26,10 +26,10 @@ const SDGS = [
 ];
 
 const METRICS = [
-  { label: "Sessions", value: "1,240+" },
-  { label: "Plans Generated", value: "890" },
-  { label: "Steps Completed", value: "3,200+" },
-  { label: "Avg Time-to-Plan", value: "< 2 min" },
+  { label: "Agent Framework", value: "OpenClaw" },
+  { label: "AI Engine", value: "FLock.io" },
+  { label: "LLM Routing", value: "RouteBox" },
+  { label: "Avg Triage Time", value: "< 2s" },
 ];
 
 const ImpactSection = () => {

@@ -1,73 +1,49 @@
-# Welcome to your Lovable project
+# CivicLift — The Local Authority Triage Agent
 
-## Project info
+CivicLift is an autonomous, conversational AI agent built for the **UK AI Agent Hackathon EP4**. It acts as a digital front door for civic and social services, instantly matching residents in need with local food banks, legal aid, and housing support.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 🏆 Hackathon Alignment & Technologies Used
 
-## How can I edit this code?
+We built CivicLift from the ground up focusing on **production-readiness**, **live infrastructure integration**, and utilizing the sponsor's ecosystem to its fullest potential:
 
-There are several ways of editing your application.
+### 1. FLock.io Integration (`openclaw-plugin-flock`)
+CivicLift uses **FLock.io's API Platform** for all of its intelligence. Instead of using generic providers, we're leveraging the official `openclaw-plugin-flock` to run inference via the highly capable `flock/deepseek-v3.2` model. This allows our agent to engage in fast, low-cost conversational reasoning and service retrieval.
 
-**Use Lovable**
+### 2. OpenClaw Multi-Agent Framework
+The entire agent architecture is driven by **OpenClaw (v2026.3.2)**. 
+- Custom **Skills**: We developed bespoke TypeScript skills (`service_finder`, `eligibility_checker`, `plan_builder`).
+- **Memory & Storage**: Integrates SQLite to log interactions, measure step completion, and track agent actions.
+- **Telegram Integration**: CivicLift connects seamlessly to our live Telegram channel natively via the OpenClaw Gateway.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+### 3. RouteBox Compatibility
+CivicLift is architected to sit behind **RouteBox**—the intelligent LLM API proxy. In a production environment with heavy citizen traffic, RouteBox manages our traffic routing to FLock.io, providing real-time local monitoring, cost tracking, and automatic failovers if an endpoint goes down.
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🚀 Try It Live!
+You can chat with our live agent right now: **[Try CivicLift on Telegram](https://t.me/civilclift_bot)**
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🛠️ How it Works
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1. **User Distress Signal**: A resident messages the bot: *"I lost my job and rent is due. I'm in SW7 2AZ"*
+2. **Agent Triage**: The OpenClaw orchestrator uses FLock inference to determine the category of need (Housing, Employment) and urgency level.
+3. **Skill Execution (Service Finder)**: CivicLift scans the local database (`data/services.uk.london.json`) and matches the resident with immediate help based on their postcode.
+4. **Skill Execution (Eligibility Checker)**: CivicLift analyzes the user's situation to suggest Universal Credit or local council crisis grants.
+5. **Action Plan**: It delivers a structured 5-step action plan, including exact phone numbers to call, email scripts, and document checklists.
 
-Follow these steps:
+## 💻 Running the Frontend
+
+The landing page (built with React/Vite/Tailwind) provides an overview of the CivicLift mission and a direct call to action to use the bot.
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Visit the local server to explore the interface and impact metrics.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## 🌍 Sustainable Development Goals (SDGs)
+CivicLift directly supports:
+- **SDG 1**: No Poverty
+- **SDG 3**: Good Health and Well-being
+- **SDG 10**: Reduced Inequalities
+- **SDG 11**: Sustainable Cities and Communities
