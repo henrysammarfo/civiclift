@@ -91,7 +91,7 @@ const Hero = () => {
             See How It Works
           </a>
           <a
-            href="https://github.com/civiclift"
+            href="https://github.com/henrysammarfo/civiclift"
             target="_blank"
             rel="noopener noreferrer"
             className="group relative px-7 py-3.5 text-text text-sm rounded-full border-2 border-stroke transition-transform hover:scale-105 overflow-hidden"

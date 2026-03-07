@@ -20,7 +20,7 @@ const Footer = () => {
 
         <div className="flex items-center gap-6">
           <a
-            href="https://github.com/civiclift"
+            href="https://github.com/henrysammarfo/civiclift"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-muted hover:text-text transition-colors"
