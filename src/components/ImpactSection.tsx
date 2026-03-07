@@ -37,27 +37,40 @@ const METRIC_ORDER = ["sessions", "plans_generated", "steps_completed", "avg_tim
 
 const ImpactSection = () => {
   const ref = useRef<HTMLElement>(null);
-  const [metrics, setMetrics] = useState<{ key: string; value: string; label: string }[]>([]);
+  const [metrics, setMetrics] = useState<{ key: string; value: string; label: string }[]>(
+    METRIC_ORDER.map((key) => ({ key, value: "—", label: METRIC_LABELS[key] ?? key }))
+  );
 
   useEffect(() => {
-    const fetchMetrics = async () => {
-      const { data } = await supabase
-        .from("bot_stats")
-        .select("metric_key, metric_value");
+    const mapData = (data: { metric_key: string; metric_value: string }[]) =>
+      METRIC_ORDER.map((key) => {
+        const row = data.find((d) => d.metric_key === key);
+        return { key, value: row?.metric_value ?? "—", label: METRIC_LABELS[key] ?? key };
+      });
 
-      if (data) {
-        const mapped = METRIC_ORDER.map((key) => {
-          const row = data.find((d) => d.metric_key === key);
-          return {
-            key,
-            value: row?.metric_value ?? "—",
-            label: METRIC_LABELS[key] ?? key,
-          };
-        });
-        setMetrics(mapped);
-      }
-    };
-    fetchMetrics();
+    // Initial fetch
+    supabase.from("bot_stats").select("metric_key, metric_value").then(({ data }) => {
+      if (data) setMetrics(mapData(data));
+    });
+
+    // Realtime subscription
+    const channel = supabase
+      .channel("bot_stats_realtime")
+      .on(
+        "postgres_changes",
+        { event: "UPDATE", schema: "public", table: "bot_stats" },
+        (payload) => {
+          const updated = payload.new as { metric_key: string; metric_value: string };
+          setMetrics((prev) =>
+            prev.map((m) =>
+              m.key === updated.metric_key ? { ...m, value: updated.metric_value } : m
+            )
+          );
+        }
+      )
+      .subscribe();
+
+    return () => { supabase.removeChannel(channel); };
   }, []);
 
   useEffect(() => {
