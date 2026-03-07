@@ -52,7 +52,7 @@ const Navbar = () => {
 
         {/* CTA */}
         <a
-          href="https://t.me/CivicLiftBot"
+          href="https://t.me/civilclift_bot"
           target="_blank"
           rel="noopener noreferrer"
           className="group relative text-xs sm:text-sm text-text rounded-full px-3 sm:px-4 py-1.5 sm:py-2 overflow-hidden"

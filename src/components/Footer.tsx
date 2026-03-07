@@ -28,7 +28,7 @@ const Footer = () => {
             GitHub
           </a>
           <a
-            href="https://t.me/CivicLiftBot"
+            href="https://t.me/civilclift_bot"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-muted hover:text-text transition-colors"
