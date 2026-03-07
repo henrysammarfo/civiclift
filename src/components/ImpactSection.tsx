@@ -26,6 +26,13 @@ const SDGS = [
   },
 ];
 
+const STATIC_METRICS = [
+  { key: "framework", label: "Agent Framework", value: "OpenClaw" },
+  { key: "engine", label: "AI Engine", value: "FLock.io" },
+  { key: "routing", label: "LLM Routing", value: "RouteBox" },
+  { key: "triage", label: "Avg Triage Time", value: "< 2s" },
+];
+
 const METRIC_LABELS: Record<string, string> = {
   sessions: "Sessions",
   plans_generated: "Plans Generated",

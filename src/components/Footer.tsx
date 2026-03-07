@@ -43,9 +43,14 @@ const Footer = () => {
           </a>
         </div>
 
-        <p className="text-xs text-muted flex items-center gap-1">
-          Built with <Heart className="w-3 h-3 text-primary" /> for the UK AI Agent Hackathon
-        </p>
+        <div className="flex flex-col items-center md:items-end gap-1">
+          <p className="text-xs text-muted flex items-center gap-1">
+            Built with <Heart className="w-3 h-3 text-primary" /> for the UK AI Agent Hackathon
+          </p>
+          <p className="text-[10px] text-muted/70 uppercase tracking-widest">
+            Powered by FLock.io × RouteBox × OpenClaw
+          </p>
+        </div>
       </div>
     </footer>
   );
