@@ -1,6 +1,7 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { supabase } from "@/integrations/supabase/client";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,15 +26,39 @@ const SDGS = [
   },
 ];
 
-const METRICS = [
-  { label: "Sessions", value: "1,240+" },
-  { label: "Plans Generated", value: "890" },
-  { label: "Steps Completed", value: "3,200+" },
-  { label: "Avg Time-to-Plan", value: "< 2 min" },
-];
+const METRIC_LABELS: Record<string, string> = {
+  sessions: "Sessions",
+  plans_generated: "Plans Generated",
+  steps_completed: "Steps Completed",
+  avg_time_to_plan: "Avg Time-to-Plan",
+};
+
+const METRIC_ORDER = ["sessions", "plans_generated", "steps_completed", "avg_time_to_plan"];
 
 const ImpactSection = () => {
   const ref = useRef<HTMLElement>(null);
+  const [metrics, setMetrics] = useState<{ key: string; value: string; label: string }[]>([]);
+
+  useEffect(() => {
+    const fetchMetrics = async () => {
+      const { data } = await supabase
+        .from("bot_stats")
+        .select("metric_key, metric_value");
+
+      if (data) {
+        const mapped = METRIC_ORDER.map((key) => {
+          const row = data.find((d) => d.metric_key === key);
+          return {
+            key,
+            value: row?.metric_value ?? "—",
+            label: METRIC_LABELS[key] ?? key,
+          };
+        });
+        setMetrics(mapped);
+      }
+    };
+    fetchMetrics();
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -68,7 +93,6 @@ const ImpactSection = () => {
           Aligned with the UN Sustainable Development Goals.
         </p>
 
-        {/* SDG Cards — editorial style with left color bar */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
           {SDGS.map((sdg) => (
             <div
@@ -86,8 +110,6 @@ const ImpactSection = () => {
                 {sdg.title}
               </h3>
               <p className="text-sm text-muted leading-relaxed">{sdg.desc}</p>
-
-              {/* Subtle corner glow on hover */}
               <div
                 className="absolute -top-12 -right-12 w-32 h-32 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl"
                 style={{ backgroundColor: `${sdg.color}15` }}
@@ -96,10 +118,9 @@ const ImpactSection = () => {
           ))}
         </div>
 
-        {/* Metrics — minimal row */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-stroke rounded-xl overflow-hidden">
-          {METRICS.map((m) => (
-            <div key={m.label} className="impact-item bg-bg text-center py-8 px-4">
+          {metrics.map((m) => (
+            <div key={m.key} className="impact-item bg-bg text-center py-8 px-4">
               <p className="text-3xl md:text-4xl font-display italic text-text mb-2">{m.value}</p>
               <p className="text-[11px] text-muted uppercase tracking-[0.15em]">{m.label}</p>
             </div>
