@@ -138,6 +138,17 @@ const ImpactSection = () => {
           ))}
         </div>
 
+        {/* Tech Stack */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-stroke rounded-xl overflow-hidden mb-8">
+          {STATIC_METRICS.map((m) => (
+            <div key={m.key} className="impact-item bg-bg text-center py-8 px-4">
+              <p className="text-2xl md:text-3xl font-display italic text-text mb-2">{m.value}</p>
+              <p className="text-[11px] text-muted uppercase tracking-[0.15em]">{m.label}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Live Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-stroke rounded-xl overflow-hidden">
           {metrics.map((m) => (
             <div key={m.key} className="impact-item bg-bg text-center py-8 px-4">
