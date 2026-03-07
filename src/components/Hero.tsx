@@ -94,7 +94,7 @@ const Hero = () => {
         <div className="blur-in flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
           <a
             href="#how-it-works"
-            className="group relative px-7 py-3.5 bg-text text-bg text-sm rounded-full font-medium transition-transform hover:scale-105 w-full sm:w-auto text-center">
+            className="group relative px-7 py-3.5 bg-text text-bg text-sm rounded-full font-medium transition-transform hover:scale-105 w-full sm:w-auto text-center"
           >
             See How It Works
           </a>
@@ -102,7 +102,7 @@ const Hero = () => {
             href="https://github.com/henrysammarfo/civiclift"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative px-7 py-3.5 text-text text-sm rounded-full border-2 border-stroke transition-transform hover:scale-105 overflow-hidden w-full sm:w-auto">
+            className="group relative px-7 py-3.5 text-text text-sm rounded-full border-2 border-stroke transition-transform hover:scale-105 overflow-hidden w-full sm:w-auto"
           >
             <span
               className="absolute inset-0 -m-[2px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
