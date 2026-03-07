@@ -67,7 +67,7 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
 
-        <h1 className="name-reveal text-6xl md:text-8xl lg:text-9xl font-display italic leading-[0.9] tracking-tight text-text mb-6">
+        <h1 className="name-reveal text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-display italic leading-[0.9] tracking-tight text-text mb-6">
           CivicLift
         </h1>
 
@@ -83,7 +83,7 @@ const Hero = () => {
           generating action plans, and tracking real impact. Aligned with UN SDGs 1, 3 &amp; 10.
         </p>
 
-        <p className="blur-in text-xs font-medium uppercase tracking-[0.15em] text-primary mb-12 flex items-center justify-center gap-3">
+        <p className="blur-in text-[10px] sm:text-xs font-medium uppercase tracking-[0.15em] text-primary mb-12 flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
           <span>FLock.io</span>
           <span className="w-1 h-1 rounded-full bg-stroke"></span>
           <span>RouteBox API</span>
@@ -91,10 +91,10 @@ const Hero = () => {
           <span>OpenClaw</span>
         </p>
 
-        <div className="blur-in flex items-center justify-center gap-4">
+        <div className="blur-in flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
           <a
             href="#how-it-works"
-            className="group relative px-7 py-3.5 bg-text text-bg text-sm rounded-full font-medium transition-transform hover:scale-105"
+            className="group relative px-7 py-3.5 bg-text text-bg text-sm rounded-full font-medium transition-transform hover:scale-105 w-full sm:w-auto text-center">
           >
             See How It Works
           </a>
@@ -102,7 +102,7 @@ const Hero = () => {
             href="https://github.com/henrysammarfo/civiclift"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative px-7 py-3.5 text-text text-sm rounded-full border-2 border-stroke transition-transform hover:scale-105 overflow-hidden"
+            className="group relative px-7 py-3.5 text-text text-sm rounded-full border-2 border-stroke transition-transform hover:scale-105 overflow-hidden w-full sm:w-auto">
           >
             <span
               className="absolute inset-0 -m-[2px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
