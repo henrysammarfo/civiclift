@@ -78,9 +78,17 @@ const Hero = () => {
           </span>
         </p>
 
-        <p className="blur-in text-sm md:text-base text-muted leading-relaxed max-w-md mx-auto mb-12">
+        <p className="blur-in text-sm md:text-base text-muted leading-relaxed max-w-md mx-auto mb-6">
           An autonomous AI agent that turns urgent needs into completed steps — matching residents to local services,
           generating action plans, and tracking real impact. Aligned with UN SDGs 1, 3 &amp; 10.
+        </p>
+
+        <p className="blur-in text-xs font-medium uppercase tracking-[0.15em] text-primary mb-12 flex items-center justify-center gap-3">
+          <span>FLock.io</span>
+          <span className="w-1 h-1 rounded-full bg-stroke"></span>
+          <span>RouteBox API</span>
+          <span className="w-1 h-1 rounded-full bg-stroke"></span>
+          <span>OpenClaw</span>
         </p>
 
         <div className="blur-in flex items-center justify-center gap-4">
