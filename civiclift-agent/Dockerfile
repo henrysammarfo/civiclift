@@ -25,5 +25,4 @@ ENV OPENCLAW_HOME=/app/.openclaw
 EXPOSE 18790
 
 # Start the OpenClaw gateway
-ENTRYPOINT ["openclaw"]
-CMD ["gateway"]
+CMD openclaw gateway
