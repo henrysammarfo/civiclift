@@ -14,8 +14,8 @@ RUN npm install
 # Copy the rest of the agent code
 COPY . .
 
-# Create the OpenClaw config directory if needed
-RUN mkdir -p /root/.openclaw
+# Create the OpenClaw config directory
+RUN mkdir -p /app/.openclaw
 
 # Set environment variables
 ENV NODE_ENV=production
