@@ -13,6 +13,8 @@ if [ ! -f .env ]; then
   echo "Error: .env file missing. Please create it first with your keys."
   exit 1
 fi
+# Sanitize .env (remove nul bytes from Windows copy-paste encoding issues)
+tr -d '\000' < .env > .env.tmp && mv .env.tmp .env
 
 # 4. Stop existing container
 sudo docker stop civiclift-agent || true
