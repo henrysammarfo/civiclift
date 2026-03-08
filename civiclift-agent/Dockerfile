@@ -25,4 +25,4 @@ ENV OPENCLAW_HOME=/app/.openclaw
 EXPOSE 18790
 
 # Start the OpenClaw gateway
-CMD ["npx", "openclaw", "gateway"]
+CMD ["npm", "start"]
