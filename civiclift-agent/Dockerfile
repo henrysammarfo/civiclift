@@ -2,7 +2,7 @@
 FROM node:20-slim
 
 # Install OpenClaw globally
-RUN npm install -g @openclawd/cli
+RUN npm install -g openclaw
 
 # Set the working directory
 WORKDIR /app
