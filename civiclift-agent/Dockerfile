@@ -1,8 +1,7 @@
 # Use Node.js 20+ as the base image
 FROM node:20-slim
 
-# Install OpenClaw globally
-RUN npm install -g openclaw
+
 
 # Set the working directory
 WORKDIR /app
