@@ -6,7 +6,7 @@ sudo apt-get update
 sudo apt-get install -y docker.io
 
 # 2. Build the Docker image
-docker build -t civiclift-agent .
+sudo docker build -t civiclift-agent .
 
 # 3. Create a .env file if it doesn't exist
 if [ ! -f .env ]; then
@@ -15,11 +15,11 @@ if [ ! -f .env ]; then
 fi
 
 # 4. Stop existing container
-docker stop civiclift-agent || true
-docker rm civiclift-agent || true
+sudo docker stop civiclift-agent || true
+sudo docker rm civiclift-agent || true
 
 # 5. Run the container in detached mode
-docker run -d \
+sudo docker run -d \
   --name civiclift-agent \
   --restart always \
   --env-file .env \
@@ -27,4 +27,4 @@ docker run -d \
   civiclift-agent
 
 echo "CivicLift is now running in the background on OCI!"
-docker ps
+sudo docker ps
