@@ -10,6 +10,9 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 
+# Ensure plugins are installed (required for the config to be valid)
+RUN npx openclaw plugins install @openclawd/flock
+
 # Copy the rest of the agent code
 COPY . .
 
