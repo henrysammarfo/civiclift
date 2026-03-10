@@ -10,15 +10,15 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 
-# Ensure plugins are installed (required for the config to be valid)
-RUN npx openclaw plugins install @openclawd/flock
-
 # Copy the rest of the agent code
 COPY . .
 
 # Set environment variables
 ENV NODE_ENV=production
 ENV OPENCLAW_HOME=/app
+
+# Ensure plugins are installed (required for the config to be valid)
+RUN npx openclaw plugins install --non-interactive @openclawd/flock
 
 # Expose the gateway port
 EXPOSE 18790
