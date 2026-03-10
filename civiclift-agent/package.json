@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "openclaw onboard --non-interactive --auth flock --api-key $FLOCK_API_KEY && openclaw gateway --allow-unconfigured",
+    "start": "openclaw onboard --non-interactive --profile flock --api-key $FLOCK_API_KEY && openclaw gateway --allow-unconfigured",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
