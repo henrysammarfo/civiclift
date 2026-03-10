@@ -16,12 +16,9 @@ RUN npx openclaw plugins install @openclawd/flock
 # Copy the rest of the agent code
 COPY . .
 
-# Create the OpenClaw config directory
-RUN mkdir -p /app/.openclaw
-
 # Set environment variables
 ENV NODE_ENV=production
-ENV OPENCLAW_HOME=/app/.openclaw
+ENV OPENCLAW_HOME=/app
 
 # Expose the gateway port
 EXPOSE 18790
