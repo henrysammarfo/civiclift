@@ -21,6 +21,7 @@
         "providers": {
             "flock": {
                 "baseUrl": "https://api.flock.io/v1",
+                "apiKey": "${FLOCK_API_KEY}",
                 "api": "openai-completions",
                 "models": [
                     {
