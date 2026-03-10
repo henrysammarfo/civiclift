@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "mkdir -p /app/.openclaw/agents/main/agent && node -e \"const k=process.env.FLOCK_API_KEY; const obj={'token':k,'key':k}; const c=JSON.stringify({'flock':obj,'flock:manual':obj,'flock-ai':obj,'openai':obj}); require('fs').writeFileSync('/app/.openclaw/agents/main/agent/auth-profiles.json', c); require('fs').writeFileSync('/app/.openclaw/auth-profiles.json', c); console.log('Auth provisioned');\" && openclaw gateway --allow-unconfigured --bind auto",
+    "start": "mkdir -p /app/.openclaw/agents/main/agent && node -e \"const k=process.env.FLOCK_API_KEY; const obj={'token':k,'key':k,'apiKey':k}; const c=JSON.stringify({'flock':obj,'flock:manual':obj,'flock-ai':obj,'flock-engine':obj,'openai':obj,'default':obj}); require('fs').writeFileSync('/app/.openclaw/agents/main/agent/auth-profiles.json', c); require('fs').writeFileSync('/app/.openclaw/auth-profiles.json', c); console.log('Universal Auth Provisioned');\" && openclaw gateway --allow-unconfigured --bind auto",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
