@@ -103,7 +103,7 @@
     "gateway": {
         "port": 18790,
         "mode": "local",
-        "bind": "any",
+        "bind": "auto",
         "auth": {
             "mode": "token",
             "token": "6eec4d75acba4c2f2b7345c89f07f174f839079840c80ecb"
