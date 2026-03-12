@@ -1,6 +1,7 @@
 import { findServices } from './skills/service_finder';
 import { checkEligibility } from './skills/eligibility_checker';
 import { buildPlan } from './skills/plan_builder';
+import { updateStats } from './skills/telemetry';
 
 export function runOrchestrator(userInput: string, userDetails: any) {
     const categoryMatch = userInput.match(/housing|food|health|employment|legal/i);
@@ -13,6 +14,9 @@ export function runOrchestrator(userInput: string, userDetails: any) {
     const urgency = urgencyMatch ? 'urgent' : 'medium';
 
     if (!categoryMatch || !postcodeMatch) {
+        // Track the start of a triage session
+        updateStats({ sessions: 'increment' });
+
         return {
             triage_questions: [
                 !categoryMatch ? "What specific category do you need help with? (housing, food, health, employment, legal)" : null,
@@ -23,6 +27,9 @@ export function runOrchestrator(userInput: string, userDetails: any) {
     }
 
     const plan = buildPlan(category, urgency, postcode, userDetails);
+
+    // Track a successful plan generation
+    updateStats({ plans_generated: 'increment', steps_completed: 'increment' });
 
     return {
         triage_questions: [],

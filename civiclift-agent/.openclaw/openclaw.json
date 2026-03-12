@@ -1,0 +1,148 @@
+{
+    "meta": {
+        "lastTouchedVersion": "2026.3.2",
+        "lastTouchedAt": "2026-03-07T10:27:58.410Z"
+    },
+    "wizard": {
+        "lastRunAt": "2026-03-07T10:14:55.062Z",
+        "lastRunVersion": "2026.3.2",
+        "lastRunCommand": "doctor",
+        "lastRunMode": "local"
+    },
+    "auth": {
+        "profiles": {
+            "flock:manual": {
+                "provider": "flock",
+                "mode": "token"
+            }
+        }
+    },
+    "models": {
+        "providers": {
+            "flock": {
+                "baseUrl": "https://api.flock.io/v1",
+                "apiKey": "${FLOCK_API_KEY}",
+                "api": "openai-completions",
+                "models": [
+                    {
+                        "id": "deepseek-v3.2",
+                        "name": "DeepSeek V3.2",
+                        "input": [
+                            "text"
+                        ],
+                        "contextWindow": 131072,
+                        "maxTokens": 8192
+                    },
+                    {
+                        "id": "minimax-m2.1",
+                        "name": "MiniMax M2.1",
+                        "input": [
+                            "text"
+                        ],
+                        "contextWindow": 131072,
+                        "maxTokens": 8192
+                    }
+                ]
+            }
+        }
+    },
+    "agents": {
+        "defaults": {
+            "model": {
+                "primary": "flock/deepseek-v3.2"
+            },
+            "models": {
+                "flock/deepseek-v3.2": {}
+            },
+            "workspace": "/app",
+            "compaction": {
+                "mode": "safeguard"
+            },
+            "maxConcurrent": 4,
+            "subagents": {
+                "maxConcurrent": 8
+            }
+        }
+    },
+    "tools": {
+        "profile": "messaging"
+    },
+    "messages": {
+        "ackReactionScope": "group-mentions"
+    },
+    "commands": {
+        "native": "auto",
+        "nativeSkills": "auto",
+        "restart": true,
+        "ownerDisplay": "raw"
+    },
+    "session": {
+        "dmScope": "per-channel-peer"
+    },
+    "channels": {
+        "telegram": {
+            "enabled": true,
+            "dmPolicy": "open",
+            "botToken": "8318528813:AAF7XXP47CmUeyZ1DNdkdJGWFOEs-a5qsbc",
+            "allowFrom": [
+                "*"
+            ],
+            "groupPolicy": "open",
+            "streaming": "partial",
+            "accounts": {
+                "default": {
+                    "dmPolicy": "open",
+                    "allowFrom": [
+                        "*"
+                    ],
+                    "groupPolicy": "open",
+                    "streaming": "partial"
+                }
+            }
+        }
+    },
+    "gateway": {
+        "port": 18790,
+        "mode": "local",
+        "bind": "auto",
+        "auth": {
+            "mode": "token",
+            "token": "6eec4d75acba4c2f2b7345c89f07f174f839079840c80ecb"
+        },
+        "tailscale": {
+            "mode": "off",
+            "resetOnExit": false
+        }
+    },
+    "skills": {
+        "install": {
+            "nodeManager": "npm"
+        }
+    },
+    "plugins": {
+        "allow": [
+            "flock",
+            "telegram"
+        ],
+        "entries": {
+            "flock": {
+                "enabled": true
+            }
+        },
+        "installs": {
+            "flock": {
+                "source": "npm",
+                "spec": "@openclawd/flock",
+                "installPath": "/app/.openclaw/extensions/flock",
+                "version": "0.4.0",
+                "resolvedName": "@openclawd/flock",
+                "resolvedVersion": "0.4.0",
+                "resolvedSpec": "@openclawd/flock@0.4.0",
+                "integrity": "sha512-ViEydqlsPsykuem/4fta6MAZHrCfdBDBWieQK/O3MMYZngneii/kqZNalnoA8boHwytgl2DJrFgb0tDlKSUJew==",
+                "shasum": "4ec4e2e5e7aeb3891dbba9a4256354229edc82c9",
+                "resolvedAt": "2026-03-07T09:01:27.229Z",
+                "installedAt": "2026-03-07T09:01:27.348Z"
+            }
+        }
+    }
+}
